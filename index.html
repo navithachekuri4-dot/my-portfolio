@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navitha Chekuri | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat', sans-serif;
+}
+body{ 
+    background:#0d0d0d;
+    color:#fff;
+    scroll-behavior:smooth;
+}
+a {
+    text-decoration:none;
+    color:#00bfff;
+}
+section {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:2rem;
+    position:relative;
+}
+h2 {
+    color:#00bfff;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+
+nav {
+    width:100%;
+    padding:15px 50px;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#111;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    border-bottom:2px solid #00bfff;
+}
+nav .logo {
+    font-weight:700;
+    font-size:1.5rem;
+}
+nav ul {
+    display:flex;
+    gap:30px;
+}
+nav ul li {
+    list-style:none;
+}
+nav ul li a {
+    color:#00bfff;
+    font-weight:600;
+    transition:0.3s;
+}
+nav ul li a:hover {
+    color:#ff66cc;
+}
+
+
+#hero {
+    display:flex;
+    justify-content:space-between; 
+    align-items:center;
+    padding:0 5%;
+    flex-wrap:wrap;
+    min-height:100vh;
+}
+#hero .text {
+    max-width:50%;
+}
+#hero h1 {
+    font-size:3.5rem; 
+    font-weight:700;
+}
+#hero h2 {
+    font-size:1.5rem;
+    color:#00bfff;
+    margin-top:10px;
+}
+#hero img {
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    border:4px solid #00bfff;
+    margin-top:20px;
+}
+button {
+    margin-top:30px; 
+    padding:12px 30px;
+    font-size:1rem;
+    font-weight:bold;
+    background:#00bfff;
+    color:#fff;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover {
+    background:#0080ff;
+}
+.cursor {
+    display:inline-block;
+    width:2px;
+    background:#00bfff;
+    margin-left:3px; 
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {0%,50%,100%{opacity:1;}25%,75%{opacity:0;}}
+
+
+#about {
+    flex-direction:column;
+    text-align:center;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+}
+#about p {
+    font-size:1.2rem; 
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+
+#skills {
+    flex-direction:column;
+    text-align:center;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s;
+    display:flex;
+    flex-direction:column; 
+    align-items:center;
+}
+.skill-card {
+    display:flex;           
+    flex-direction:row;     
+    align-items:center;     
+    justify-content:center; 
+    gap:10px;               
+    margin:15px;
+    padding:20px 30px;
+    border:2px solid #00bfff;
+    border-radius:15px;
+    font-weight:700;
+    font-size:1.2rem;
+    color:#00bfff;
+    cursor:pointer;
+    transition:0.3s;
+    position:relative;
+    width:220px;
+    height:80px;
+    background:#111;
+}
+.skill-card i {
+    font-size:2rem;
+}
+.skill-card span {
+    display:none;
+    position:absolute;
+    top:50%;
+    left:110%;
+    transform:translateY(-50%);
+    background:#111;
+    color:#00bfff;
+    padding:10px;
+    border-radius:10px;
+    font-size:0.9rem;
+    width:180px;
+    line-height:1.3;
+    text-align:center;
+    z-index:10;
+}
+.skill-card:hover {
+    background:#00bfff;
+    color:#0d0d0d;
+    transform:scale(1.1);
+}
+.skill-card:hover span {display:block;}
+
+
+#projects {
+    flex-direction:column;
+    text-align:center;
+    padding:50px 20px;
+}
+.projects-container {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:30px;
+    margin-top:40px;
+}
+.project-card {
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    border:2px solid #00bfff;
+    transition:0.3s;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color:#ff66cc;
+}
+.project-card h3 {
+    margin-bottom:10px;
+    color:#00bfff;
+}
+.project-card p {
+    font-size:0.95rem;
+    color:#ccc;
+    margin-bottom:15px;
+}
+.project-card a {
+    padding:10px 20px;
+    display:inline-block;
+    background:#00bfff;
+    color:#fff;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+.project-card a:hover {background:#ff66cc;}
+
+
+#contact {
+    flex-direction:column; 
+    text-align:center; 
+    opacity:0; 
+    transform:translateY(50px); 
+    transition:1s;
+}
+#contact p {
+    margin:15px 0; 
+    font-size:1.2rem;
+}
+#contact a {
+    color:#00bfff; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    gap:10px; 
+    transition:0.3s;
+}
+#contact a:hover {color:#0080ff;}
+.social-icons {
+    margin-top:20px;
+    display:flex;
+    gap:30px;
+    justify-content:center;
+}
+.social-icons a {
+    font-size:2rem;
+    color:#00bfff;
+    transition:0.3s;
+}
+.social-icons a:hover {color:#0080ff;}
+</style>
+</head>
+<body>
+
+ 
+ <nav>
+    <div class="logo">Portfolio</div>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+ </nav>
+
+
+<section id="hero">
+  <div class="text">
+    <h1 id="name"></h1>
+    <h2 id="role"></h2><span class="cursor"></span>
+    <button onclick="scrollToSection('about')">View Portfolio</button>
+  </div>
+  <img src="pfp.jpg" alt="Navitha Chekuri">
+</section>
+
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    Hello! I am <strong>Navitha Chekuri</strong>, a first-year student at Scaler School of Technology. 
+    I have recently started my journey in web development and programming. 
+    Currently, I am learning <em>HTML, CSS, JavaScript, and Java</em>. 
+    My goal is to build visually appealing and interactive websites while mastering modern web technologies.
+    I am passionate about coding, problem-solving, and continuously learning new skills to improve myself. 
+    I aim to become a full-stack developer and contribute to meaningful projects in the future.
+  </p>
+</section>
+
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skill-card">
+    <i class="fab fa-html5"></i>
+    HTML
+    <span>Used for structuring web pages and content.</span>
+  </div>
+  <div class="skill-card">
+    <i class="fab fa-css3-alt"></i>
+    CSS
+    <span>Used for styling and designing web pages.</span>
+  </div>
+  <div class="skill-card">
+    <i class="fab fa-js-square"></i>
+    JS
+    <span>Used to add interactivity to web pages.</span>
+  </div>
+  <div class="skill-card">
+    <i class="fab fa-java"></i>
+    Java
+    <span>Used for backend logic and applications.</span>
+  </div>
+</section>
+
+
+<section id="projects">
+  <h2>My Projects</h2>
+  <div class="projects-container">
+    <div class="project-card">
+      <h3>Dog Website</h3>
+      <p>A colorful and interactive dog website created using HTML & CSS.</p>
+      <a href="dog website.html" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Dog Gallery</h3>
+      <p>A gallery of dogs showcasing images with hover effects and CSS grid layout.</p>
+      <a href="dog gallery.html" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Calculator</h3>
+      <p>A functional black & white calculator built with HTML, CSS, and JavaScript.</p>
+      <a href="calculator.html" target="_blank">View Project</a>
+    </div>
+    <div class="project-card">
+      <h3>Quiz App</h3>
+      <p>An interactive 5-question quiz with colorful options and score display.</p>
+      <a href="quiz.html" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:navithachekuri4@gmail.com"><i class="fas fa-envelope"></i> navithachekuri4@gmail.com</a></p>
+  <p>GitHub: <a href="https://github.com/navitha_chekuri" target="_blank"><i class="fab fa-github"></i> github.com/navitha_chekuri</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/navithachekuri" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/navithachekuri</a></p>
+
+  <div class="social-icons">
+    <a href="mailto:navithachekuri4@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/navitha_chekuri" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/navithachekuri" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+</section>
+
+<script>
+  
+  const nameText = "Navitha Chekuri";
+  const roles = ["Web Developer", "Designer", "Learner"];
+  let i = 0, j = 0, roleIndex = 0, deleting = false;
+  const nameElement = document.getElementById("name");
+  const roleElement = document.getElementById("role");
+
+  function typeName() {
+    if(i < nameText.length){
+      nameElement.innerHTML += nameText.charAt(i);
+      i++;
+      setTimeout(typeName, 150);
+    } else { typeRole(); }
+  }
+
+  function typeRole() {
+    const currentRole = roles[roleIndex];
+    if(!deleting && j <= currentRole.length){
+      roleElement.innerHTML = currentRole.substring(0,j);
+      j++;
+      setTimeout(typeRole,150);
+    } else if(deleting && j>=0){
+      roleElement.innerHTML = currentRole.substring(0,j);
+      j--;
+      setTimeout(typeRole,100);
+    } else {
+      deleting = !deleting;
+      if(!deleting) roleIndex = (roleIndex+1)%roles.length;
+      setTimeout(typeRole,500);
+    }
+  }
+
+  window.onload = typeName;
+
+  
+  function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  }
+
+  
+  const sections = document.querySelectorAll('section:not(#hero)');
+  window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 100){
+        section.style.opacity = 1;
+        section.style.transform = 'translateY(0)';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

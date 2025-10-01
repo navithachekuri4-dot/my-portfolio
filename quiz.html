@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
+<style>
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0d0d0d;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.quiz-container {
+    background-color: #001f4d;
+    padding: 40px 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 0 20px #00bfff;
+}
+h1 {
+    text-align: center;
+    color: #00bfff;
+    margin-bottom: 20px;
+}
+.question {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.option {
+    padding: 12px 20px;
+    background-color: #003366;
+    border: 2px solid #00bfff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+.option:hover {
+    background-color: #00bfff;
+    color: #0d0d0d;
+    transform: scale(1.05);
+}
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #00bfff;
+    color: #0d0d0d;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+button:hover {
+    background-color: #0080ff;
+}
+#result {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 20px;
+    color: #00bfff;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Quiz App</h1>
+    <div id="quiz">
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <button id="nextBtn">Next</button>
+        <div id="result"></div>
+    </div>
+</div>
+
+<script>
+const quizData = [
+    { question: "What does HTML stand for?", options: ["Hyper Text Markup Language","High Text Markup Language","Hyperlinks Text Mark Language","Hyper Tool Multi Language"], answer: "Hyper Text Markup Language" },
+    { question: "What does CSS stand for?", options: ["Cascading Style Sheets","Creative Style Sheets","Colorful Style Sheets","Computer Style Sheets"], answer: "Cascading Style Sheets" },
+    { question: "Which language is used for web interactivity?", options: ["JavaScript","HTML","CSS","Python"], answer: "JavaScript" },
+    { question: "Which symbol is used for IDs in CSS?", options: ["#","." ,"*","$"], answer: "#" },
+    { question: "Which HTML tag is used for the largest heading?", options: ["<h1>","<h6>","<head>","<header>"], answer: "<h1>" },
+    { question: "Which company developed JavaScript?", options: ["Netscape","Microsoft","Sun Microsystems","Oracle"], answer: "Netscape" },
+    { question: "Inside which HTML element do we put JavaScript?", options: ["<script>","<js>","<javascript>","<code>"], answer: "<script>" },
+    { question: "Which HTML attribute is used to define inline styles?", options: ["style","class","id","font"], answer: "style" },
+    { question: "Which CSS property changes text color?", options: ["color","font-color","text-color","background-color"], answer: "color" },
+    { question: "Which JavaScript keyword is used to declare a variable?", options: ["let","var","const","All of the above"], answer: "All of the above" },
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const nextBtn = document.getElementById("nextBtn");
+const resultEl = document.getElementById("result");
+
+function loadQuestion() {
+    const q = quizData[currentQuestion];
+    questionEl.textContent = q.question;
+    optionsEl.innerHTML = '';
+    q.options.forEach(option => {
+        const btn = document.createElement('div');
+        btn.classList.add('option');
+        btn.textContent = option;
+        btn.onclick = () => selectAnswer(option);
+        optionsEl.appendChild(btn);
+    });
+}
+
+function selectAnswer(selected) {
+    const correct = quizData[currentQuestion].answer;
+    if(selected === correct) score++;
+    currentQuestion++;
+    if(currentQuestion < quizData.length){
+        loadQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    questionEl.style.display = 'none';
+    optionsEl.style.display = 'none';
+    nextBtn.style.display = 'none';
+    resultEl.textContent = `You scored ${score} out of ${quizData.length}!`;
+}
+
+nextBtn.addEventListener('click', () => {
+    currentQuestion++;
+    if(currentQuestion < quizData.length){
+        loadQuestion();
+    } else {
+        showResult();
+    }
+});
+
+loadQuestion();
+</script>
+
+</body>
+</html>
