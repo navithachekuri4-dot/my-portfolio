@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog World</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #FFD194, #D1913C); /* warm gradient background */
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #FF6B6B, #FFD93D);
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+    }
+
+    nav {
+      background-color: #FF9F1C;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      color: #6A0572;
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h2 {
+      color: #FF6B6B;
+      margin-bottom: 25px;
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 0 auto;
+      max-width: 700px;
+    }
+
+    .dog-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .dog-images img {
+      width: 250px;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .dog-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .fact-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #FF6B6B, #FFD93D);
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-weight: bold;
+    }
+
+    .fact-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .dog-fact {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #6A0572;
+      min-height: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #FF6B6B;
+      color: white;
+      margin-top: 40px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .dog-images img {
+        width: 100%;
+      }
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Dog World</h1>
+  </header>
+
+  <nav>
+    <a href="#breeds">Breeds</a>
+    <a href="#facts">Facts</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+
+  <section id="breeds">
+    <h2>Popular Dog Breeds</h2>
+    <p>
+      Dogs come in a variety of breeds, each with unique traits and personalities. Popular breeds include Labrador Retriever, Golden Retriever, Beagle, German Shepherd, and French Bulldog.
+    </p>
+  </section>
+
+  <section id="facts">
+    <h2>Fun Dog Facts</h2>
+    <button class="fact-button" onclick="showFact()">Show a Random Dog Fact</button>
+    <div class="dog-fact" id="dogFact"></div>
+  </section>
+
+  <section id="gallery">
+    <h2>Dog Gallery</h2>
+    <div class="dog-images">
+      <img src="https://images.dog.ceo/breeds/husky/n02110185_1469.jpg" alt="Husky">
+      <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z29sZGVuJTIwcmV0cmlldmVyfGVufDB8fDB8fA&ixlib=rb-4.0.3&q=80&w=400" alt="Golden Retriever">
+      <img src="https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg" alt="Beagle">
+      
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Dog World. All rights reserved.
+  </footer>
+
+  <script>
+    const dogFacts = [
+      "Dogs have an incredible sense of smell, 10,000 times stronger than humans.",
+      "A dog's sense of hearing is four times sharper than a human's.",
+      "The Basenji dog is known as the 'barkless dog'.",
+      "Dalmatians are born completely white and develop spots as they grow.",
+      "Dogs can understand up to 250 words and gestures."
+    ];
+
+    function showFact() {
+      const randomIndex = Math.floor(Math.random() * dogFacts.length);
+      document.getElementById("dogFact").textContent = dogFacts[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
+
+      
+      
+
+    
+    
